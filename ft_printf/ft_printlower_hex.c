@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printlower_hex.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cycolonn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/27 18:13:56 by cycolonn          #+#    #+#             */
+/*   Updated: 2025/11/27 18:13:57 by cycolonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ft_printf.h"
+
+static void	ft_localdisable(t_flags *f)
+{
+	f->space = 0;
+	f->plus = 0;
+	f->precision = 0;
+	f->width = 0;
+}
+
+int	ft_printlower_hex(unsigned int n, t_flags *f)
+{
+	char	*nbr;
+	char	*prefix;
+	char	*precise;
+	char	*mid;
+
+
+  ft_localdisable(f);
+	nbr = ft_utoabase((unsigned long)n, "0123456789abcdef");
+	prefix = ft_prefix(n, 'x', f);
+	precise = ft_precision_nbr(nbr, f);
+	mid = ft_midcontent(prefix, precise);
+	return (ft_padandprint(mid, f));
+}
