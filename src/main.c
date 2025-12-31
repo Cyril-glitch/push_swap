@@ -1,11 +1,7 @@
-#include  "push_swap.h"
-#include  <unistd.h>
+#include  "../inc/push_swap.h"
 
 int main(int  ac, char **av)
 {
-  if (ac < 1)
-    return 0;
-
   t_dlist *stack_a;
   t_dlist *stack_b;
 

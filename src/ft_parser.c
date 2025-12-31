@@ -1,7 +1,22 @@
-#include  "push_swap.h"
-#include  "libft/libft.h"
+#include  "../inc/push_swap.h"
 
-static void ft_convert(char *av, t_dlist **new)
+static  void ft_validarg(int ac, char **av)
+{
+  int i;
+
+  i = 0;
+  if (ac < 2)
+    ft_error(NULL,NULL);
+  
+  while (i < ac)
+  {
+    if (!av[i])
+      ft_error(NULL,NULL);
+    i++;
+  }
+}
+
+static  void ft_convert(char *av, t_dlist **new)
 {
   int i;
   long  nbr;
@@ -26,6 +41,8 @@ t_dlist *ft_parser(int ac, char **av)
   t_dlist *new;
 
   i = 0;
+  new = NULL;
+  ft_validarg(ac, av);
   while (i < ac)
   {
     ft_convert(av[i], &new);

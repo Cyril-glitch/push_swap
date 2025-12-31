@@ -1,6 +1,4 @@
-#include  "push_swap.h"
-#include  "libft/libft.h"
-#include  "ft_printf/ft_printf.h"
+#include  "../inc/push_swap.h"
 
 
 void  ft_error(t_dlist **stack_a, t_dlist **stack_b)

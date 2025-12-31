@@ -6,15 +6,15 @@
 /*   By: cycolonn <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:56:38 by cycolonn          #+#    #+#             */
-/*   Updated: 2025/12/02 14:29:03 by cycolonn         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:49:41 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
 # include <stdlib.h>
 # include <unistd.h>
+
 //# include <fcntl.h>
 //# include <stdio.h>
 //# include <string.h>
@@ -89,8 +89,10 @@ void	ft_putnbr_fd(int n, int fd);
 
 //affichage des bases
 int		ft_atoi(const char *nptr);
+long  ft_atol(const char *nbr);
 char	*ft_itoa(int n);
 void	ft_putnbr(int nbr);
+void	ft_putnbr_base(int nbr, char *base);
 
 //listes
 t_list	*ft_lstnew(void *content);

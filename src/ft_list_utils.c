@@ -1,7 +1,6 @@
-#include  "push_swap.h"
-#include  "ft_printf/ft_printf.h"
+#include  "../inc/push_swap.h"
 
-void  printlst(t_dlist *stack)
+void  ft_printlst(t_dlist *stack)
 {
   int i;
   t_dlist *current;
@@ -16,7 +15,7 @@ void  printlst(t_dlist *stack)
   ft_printf("NULL");
 }
 
-t_dlist	*ft_dlstnew(void *content)
+t_dlist	*ft_dlstnew(long content)
 {
 	t_dlist	*node;
 
@@ -35,20 +34,12 @@ void	ft_dlstadd_front(t_dlist **lst, t_dlist *new)
 		return ;
 	if (*lst)
 	{
-		new->next = *lst;
     (*lst)->prev = new;
+		new->next = *lst;
 		*lst = new;
 	}
 	else
 		*lst = new;
-}
-
-void	ft_dlstdelone(t_dlist *lst, void (*del)(void*))
-{
-	if (!lst)
-		return ;
-	del (lst->content);
-	free(lst);
 }
 
 void	ft_dlstclear(t_dlist **lst, void (*del)(void*))
@@ -61,7 +52,7 @@ void	ft_dlstclear(t_dlist **lst, void (*del)(void*))
 	while (*lst)
 	{
 		*lst = (*lst)->next;
-		ft_dlstdelone(todel, del);
+    free(*lst);
 		todel = *lst;
 	}
 }

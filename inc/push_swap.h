@@ -2,9 +2,12 @@
 #ifndef  PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include  "../inc/libft.h"
+# include  "../inc/ft_printf.h"
+
 typedef struct  s_dlist
 {
-  void    *content;
+  long     content;
   struct  s_dlist *prev;
   struct  s_dlist *next; 
 } t_dlist;
@@ -12,7 +15,7 @@ typedef struct  s_dlist
 //list utils
 void  ft_printlst(t_dlist *stack);
 void	ft_dlstadd_front(t_dlist **lst, t_dlist *new);
-t_dlist	*ft_dlstnew(void *content);
+t_dlist	*ft_dlstnew(long content);
 void	ft_dlstclear(t_dlist **lst, void (*del)(void*));
 void	ft_dlstdelone(t_dlist *lst, void (*del)(void*));
 
