@@ -1,19 +1,51 @@
 #include  "../inc/push_swap.h"
 
-static  void ft_validarg(int ac, char **av)
+static int ft_duplicates(char **tab)
 {
   int i;
+  int j;
 
   i = 0;
-  if (ac < 2)
-    ft_error(NULL,NULL);
-  
-  while (i < ac)
+  while (tab[i])
   {
-    if (!av[i])
-      ft_error(NULL,NULL);
+    j = i + 1;
+    while (tab[j])
+    {
+      if (ft_strcmp(tab[i], tab[j]) == 0) 
+        return (1);
+      j++;
+    }
     i++;
   }
+  return (0);
+}
+
+static  int ft_nodigit(char **tab)
+{
+  int i;
+  int j;
+  
+  i = 0;
+  while (tab[i])
+  {
+    j = 0;
+    while (tab[i][j])
+    {
+      if (!ft_isdigit(tab[i][j]))
+        return (1);
+      j++;
+    }
+    i++;
+  }
+  return (0);
+}
+
+static void ft_checkargs(char **tab)
+{
+  if (ft_duplicates(tab))
+    ft_error(NULL, NULL);
+  else if (ft_nodigit(tab))
+    ft_error(NULL, NULL); 
 }
 
 static  void ft_convert(char *av, t_dlist **new)
@@ -24,25 +56,27 @@ static  void ft_convert(char *av, t_dlist **new)
 
   i = 0;
   tab = ft_split(av, ' ');
+  ft_checkargs(tab);
   while (tab[i])
   {
     nbr = ft_atol(tab[i]);
-    ft_dlstadd_front(new, ft_dlstnew(&nbr));
+    if (nbr < INT_MIN || nbr > INT_MAX)
+      ft_error(NULL,NULL);
+    ft_dlstadd_back(new, ft_dlstnew(nbr));
     if (!new)
       ft_error(new, NULL);
     i++;
   }
+  ft_freeiter(tab, i);
 }
 
 t_dlist *ft_parser(int ac, char **av)
 {
-
   int i;
   t_dlist *new;
 
-  i = 0;
+  i = 1;
   new = NULL;
-  ft_validarg(ac, av);
   while (i < ac)
   {
     ft_convert(av[i], &new);

@@ -2,15 +2,17 @@
 
 void  ft_printlst(t_dlist *stack)
 {
-  int i;
+  int lap;
   t_dlist *current;
 
-  i = 0;
+  lap = 0;
   current = stack; 
-  while (current)
+  while (!lap)
   {
     ft_printf("%d-->",current->content);
     current = current->next;
+    if (current == stack)
+      lap++;
   }
   ft_printf("NULL");
 }
@@ -28,31 +30,60 @@ t_dlist	*ft_dlstnew(long content)
 	return (node);
 }
 
-void	ft_dlstadd_front(t_dlist **lst, t_dlist *new)
+void	ft_dlstadd_back(t_dlist **lst, t_dlist *new)
 {
 	if (!lst || !new)
 		return ;
-	if (*lst)
+	if (*lst && !(*lst)->prev)
 	{
+    new->next = *lst;
+    new->prev = *lst;
     (*lst)->prev = new;
-		new->next = *lst;
-		*lst = new;
+    (*lst)->next = new;
 	}
+	if (*lst && (*lst)->prev)
+  {
+    new->next = *lst;
+    new->prev = (*lst)->prev;
+    (*lst)->prev->next = new;
+    (*lst)->prev = new;
+  }
 	else
 		*lst = new;
 }
 
-void	ft_dlstclear(t_dlist **lst, void (*del)(void*))
+int ft_stacksize(t_dlist *stack)
 {
-	t_dlist	*todel;
+  int lap;
+  int i;
+  t_dlist *current;
 
-	if (!lst || !del)
-		return ;
-	todel = *lst;
-	while (*lst)
-	{
-		*lst = (*lst)->next;
-    free(*lst);
-		todel = *lst;
-	}
+  lap = 0;
+  i = 0;
+  current = stack; 
+  while (!lap)
+  {
+    current = current->next;
+    i++;
+    if (current == stack)
+      lap++;
+  }
+  return (i);
+}
+
+void	ft_dlstclear(t_dlist **lst)
+{
+  int i;
+  int size;
+  t_dlist *current;
+
+  i = 0;
+  size = ft_stacksize(*lst);
+  while (i < size)
+  {
+    current = *lst;
+    *lst = (*lst)->next;
+    free(current);
+    i++;
+  }
 }

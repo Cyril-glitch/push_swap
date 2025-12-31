@@ -5,6 +5,16 @@
 # include  "../inc/libft.h"
 # include  "../inc/ft_printf.h"
 
+# ifndef INT_MIN
+#  define INT_MIN -2147483648
+# endif
+
+# ifndef INT_MAX
+#  define INT_MAX -2147483647
+# endif
+
+
+
 typedef struct  s_dlist
 {
   long     content;
@@ -14,10 +24,10 @@ typedef struct  s_dlist
 
 //list utils
 void  ft_printlst(t_dlist *stack);
-void	ft_dlstadd_front(t_dlist **lst, t_dlist *new);
+void	ft_dlstadd_back(t_dlist **lst, t_dlist *new);
 t_dlist	*ft_dlstnew(long content);
-void	ft_dlstclear(t_dlist **lst, void (*del)(void*));
-void	ft_dlstdelone(t_dlist *lst, void (*del)(void*));
+void	ft_dlstclear(t_dlist **lst);
+int ft_stacksize(t_dlist *stack);
 
 //recuperation et stockage des donnees
 t_dlist *ft_parser(int  ac,char **av);
