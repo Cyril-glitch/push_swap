@@ -10,7 +10,6 @@ static  void ft_convertnode(char *av, t_dlist **new)
   tab = ft_split(av, ' ');
   if (!tab)
     ft_error(tab,new,NULL);
-  ft_checkdup(tab, new);
   ft_checkdigit(tab, new);
   while (tab[i])
   {
@@ -19,6 +18,7 @@ static  void ft_convertnode(char *av, t_dlist **new)
     ft_dlstadd_back(new, ft_dlstnew(nbr));
     i++;
   }
+  ft_checkdup(tab, new);
   ft_freedtab(tab);
 }
 

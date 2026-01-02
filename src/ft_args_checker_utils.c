@@ -2,19 +2,28 @@
 
 void ft_checkdup(char **tab, t_dlist **new)
 {
-  int i;
-  int j;
+  size_t  size;
+  size_t  i;
+  size_t  j;
+  t_dlist *current;
+  t_dlist *compared;
 
   i = 0;
-  while (tab[i])
+  size = ft_stacksize(*new);
+  current = *new; 
+  while (i < size)
   {
     j = i + 1;
-    while (tab[j])
+    compared = current->next;
+    while (j < size)
     {
-      if (ft_strcmp(tab[i], tab[j]) == 0) 
-        ft_error(tab, new, NULL);
+
+      if (current->content == compared->content)
+        ft_error(tab,new,NULL);
+      compared = compared->next;
       j++;
     }
+    current = current->next;
     i++;
   }
 }
