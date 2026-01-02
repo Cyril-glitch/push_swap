@@ -51,11 +51,13 @@ int		ft_isset(char c, const char *set);
 //allocation
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_freeiter(char **tab, int i);
+void  ft_freedtab(void *t);
 
 //manipulation des chaines de caracteres
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 size_t	ft_strlen(const char *s);
+size_t	ft_dtablen(void *s);
 void	ft_putstr(char *str);
 char	*ft_strcpy(char *dst, const char *src);
 

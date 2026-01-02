@@ -4,7 +4,7 @@ int main(int  ac, char **av)
 {
 
   if (ac < 2)
-    ft_error(NULL,NULL);
+    ft_error(NULL,NULL,NULL);
 
   t_dlist *stack_a;
   t_dlist *stack_b;

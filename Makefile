@@ -14,6 +14,7 @@ SRC = src/ft_error.c \
 			src/ft_reverse.c \
 			src/ft_rotate.c \
 			src/ft_swap.c \
+			src/ft_args_checker_utils.c \
 			src/main.c
  
 

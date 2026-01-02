@@ -33,15 +33,8 @@ t_dlist	*ft_dlstnew(long content)
 void	ft_dlstadd_back(t_dlist **lst, t_dlist *new)
 {
 	if (!lst || !new)
-		return ;
-	if (*lst && !(*lst)->prev)
-	{
-    new->next = *lst;
-    new->prev = *lst;
-    (*lst)->prev = new;
-    (*lst)->next = new;
-	}
-	if (*lst && (*lst)->prev)
+    ft_error(NULL,lst,NULL);
+	if (*lst)
   {
     new->next = *lst;
     new->prev = (*lst)->prev;
@@ -49,7 +42,11 @@ void	ft_dlstadd_back(t_dlist **lst, t_dlist *new)
     (*lst)->prev = new;
   }
 	else
+  {
 		*lst = new;
+    new->next = new;
+    new->prev = new;
+  }
 }
 
 int ft_stacksize(t_dlist *stack)
@@ -58,6 +55,8 @@ int ft_stacksize(t_dlist *stack)
   int i;
   t_dlist *current;
 
+  if (!stack)
+    return (0);
   lap = 0;
   i = 0;
   current = stack; 
@@ -77,6 +76,8 @@ void	ft_dlstclear(t_dlist **lst)
   int size;
   t_dlist *current;
 
+  if (!lst)
+    return ;
   i = 0;
   size = ft_stacksize(*lst);
   while (i < size)

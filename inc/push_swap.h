@@ -10,7 +10,7 @@
 # endif
 
 # ifndef INT_MAX
-#  define INT_MAX -2147483647
+#  define INT_MAX 2147483647
 # endif
 
 
@@ -21,6 +21,11 @@ typedef struct  s_dlist
   struct  s_dlist *prev;
   struct  s_dlist *next; 
 } t_dlist;
+
+//args_checker_utils
+void ft_checkdigit(char **tab, t_dlist **new);
+void ft_checkdup(char **tab, t_dlist **new);
+void ft_check_overint(char **tab, t_dlist **new, long nbr);
 
 //list utils
 void  ft_printlst(t_dlist *stack);
@@ -43,7 +48,7 @@ void  ft_reverse(const char mode,t_dlist stack);
 void  ft_tinysort(t_dlist stack);
 void  ft_bigsort(t_dlist stack);
 
-//clean
-void  ft_error(t_dlist **stack_a, t_dlist **stack_b);
+//exit and clean
+void  ft_error(char **tab, t_dlist **stack_a, t_dlist **stack_b);
 
 #endif
