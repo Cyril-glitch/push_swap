@@ -8,7 +8,6 @@ LIB = ./ft_printf/lib/libftprintf.a
 
 SRC = src/ft_error.c \
 			src/ft_list_utils.c \
-			src/ft_mode.c \
 			src/ft_parser.c \
 			src/ft_push.c \
 			src/ft_reverse.c \

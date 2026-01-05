@@ -9,12 +9,12 @@ void  ft_printlst(t_dlist *stack)
   current = stack; 
   while (!lap)
   {
-    ft_printf("%d-->",current->content);
+    ft_printf("[%d]\n",current->content);
     current = current->next;
     if (current == stack)
       lap++;
   }
-  ft_printf("NULL");
+  ft_printf("\n");
 }
 
 t_dlist	*ft_dlstnew(long content)
@@ -48,6 +48,26 @@ void	ft_dlstadd_back(t_dlist **lst, t_dlist *new)
     new->prev = new;
   }
 }
+
+void	ft_dlstadd_front(t_dlist **lst, t_dlist *new)
+{
+	if (!lst || !new)
+    ft_error(NULL,lst,NULL);
+	if (*lst)
+  {
+    new->next = *(lst)->next;
+    new->prev = *(lst);
+    (*lst)->next->prev = new;
+    (*lst)->next = new;
+  }
+	else
+  {
+		*lst = new;
+    new->next = new;
+    new->prev = new;
+  }
+}
+
 
 int ft_stacksize(t_dlist *stack)
 {

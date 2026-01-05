@@ -14,6 +14,8 @@ int main(int  ac, char **av)
 
   stack_a = ft_parser(ac, av);
   ft_printlst(stack_a);
+  ft_swap("sa", &stack_a,&stack_b);
+  ft_printlst(stack_a);
 
   /*
   if (ac < 10)
