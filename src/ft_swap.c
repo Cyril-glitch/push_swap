@@ -1,38 +1,46 @@
 #include  "../inc/push_swap.h"
 
-static  void  ft_sa(t_dlist **stack)
+static  void  ft_swapping(t_clist **head)
 {
-  t_dlist *top1;
-  t_dlist *top2;
-  t_dlist *top1_prev;
-  t_dlist *top2_next;
+  t_clist *second;
+  t_clist *last;
+  t_clist *third;
 
-  if (!*stack || ft_stacksize(*stack) < 2)
+  if (!*head || ft_stacksize(*head) < 2)
     return ;
 
-  top1 = *stack;
-  top2 = (*stack)->next;
-  top1_prev = top1->prev;
-  top2_next = top2->next;
-
-  top1->next = top2_next;
-  top1->prev = top2;
-  top2->next = top1;
-  top2->prev = top1_prev;
-  top1_prev->next = top2;
-  top2_next->prev = top1;
-  *stack = top2; 
+  second = (*head)->next;
+  last = (*head)->prev;
+  third = second->next;
+  if (third == (*head))
+  {
+    (*head) = second;
+    return ;
+  }
+  second->next = (*head);
+  second->prev = last;
+  (*head)->next = third;
+  (*head)->prev = second;
+  last->next = second;
+  (*head) = second;
 }
 
-void  ft_swap(const char *mode,t_dlist **stack_a ,t_dlist **stack_b)
+void  ft_swap(const char *mode,t_clist **stack_a ,t_clist **stack_b)
 {
   if (ft_strcmp(mode, "sa") == 0)
-    ft_sa(stack_a);
+  {
+    ft_swapping(stack_a);
+    write(1, "   sa\n\n", 7);
+  }
   else if (ft_strcmp(mode, "sb") == 0)
-    ft_sa(stack_b);
+  {
+    ft_swapping(stack_b);
+    write(1, "   sb\n\n", 7);
+  }
   else if (ft_strcmp(mode, "ss") == 0)
   {
-    ft_sa(stack_a);
-    ft_sa(stack_b);
+    ft_swapping(stack_a);
+    ft_swapping(stack_b);
+    write(1, "   ss\n\n", 7);
   } 
 }

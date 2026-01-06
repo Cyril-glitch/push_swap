@@ -1,6 +1,6 @@
 #include  "../inc/push_swap.h"
 
-static  void ft_convertnode(char *av, t_dlist **new) 
+static  void ft_convertnode(char *av, t_clist **new) 
 {
   int i;
   long  nbr;
@@ -15,17 +15,17 @@ static  void ft_convertnode(char *av, t_dlist **new)
   {
     nbr = ft_atol(tab[i]);
     ft_check_overint(tab, new, nbr);
-    ft_dlstadd_back(new, ft_dlstnew(nbr));
+    ft_clstadd_back(new, ft_clstnew(nbr));
     i++;
   }
   ft_checkdup(tab, new);
   ft_freedtab(tab);
 }
 
-t_dlist *ft_parser(int ac, char **av)
+t_clist *ft_parser(int ac, char **av)
 {
   int i;
-  t_dlist *new;
+  t_clist *new;
 
   i = 1;
   new = NULL;

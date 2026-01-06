@@ -1,12 +1,12 @@
 #include  "../inc/push_swap.h"
 
-void ft_checkdup(char **tab, t_dlist **new)
+void ft_checkdup(char **tab, t_clist **new)
 {
   size_t  size;
   size_t  i;
   size_t  j;
-  t_dlist *current;
-  t_dlist *compared;
+  t_clist *current;
+  t_clist *compared;
 
   i = 0;
   size = ft_stacksize(*new);
@@ -28,7 +28,7 @@ void ft_checkdup(char **tab, t_dlist **new)
   }
 }
 
-void ft_checkdigit(char **tab, t_dlist **new)
+void ft_checkdigit(char **tab, t_clist **new)
 {
   int i;
   int j;
@@ -47,7 +47,7 @@ void ft_checkdigit(char **tab, t_dlist **new)
   }
 }
 
-void  ft_check_overint(char **tab, t_dlist **new, long nbr)
+void  ft_check_overint(char **tab, t_clist **new, long nbr)
 {
   if (nbr < INT_MIN || nbr > INT_MAX)
       ft_error(tab, new, NULL);

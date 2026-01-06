@@ -1,9 +1,45 @@
 #include  "../inc/push_swap.h"
 
-void  ft_push(const char mode, t_dlist **stack_a, t_dlist **stack_b)
+static  t_clist *ft_cutnode(t_clist **head)
+{
+  t_clist *last;
+  t_clist *second;
+  t_clist *cutted;
+
+  if ((*head) == (*head)->next)
+  {
+    cutted = *head;
+    *head = NULL;
+    return (cutted);
+  }
+  last = (*head)->prev;
+  second = (*head)->next;
+  last->next = second;
+  second->prev = last;
+  cutted = *head;
+  *head = second;
+  cutted->next = cutted;
+  cutted->prev = cutted;
+  return (cutted);
+}
+
+static  void ft_pusher(t_clist **dst, t_clist **src)
+{
+  if (ft_stacksize(*src) < 1)
+    return ;
+  ft_clstadd_front(dst, ft_cutnode(src));
+}
+
+void  ft_push(const char *mode, t_clist **stack_a, t_clist **stack_b)
 {
   if (ft_strcmp(mode, "pa") == 0)
-    ft_pusher(stack_a);
+  {
+    ft_pusher(stack_a, stack_b);
+    write(1, "   pa\n\n", 7);
+  }
   else if (ft_strcmp(mode, "pb") == 0)
-    ft_pusher(stack_b);
+  {
+    ft_pusher(stack_b, stack_a);
+    write(1, "   pb\n\n", 7);
+  }
 }
