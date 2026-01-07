@@ -13,7 +13,7 @@ int main(int  ac, char **av)
   stack_b = NULL;
 
   stack_a = ft_parser(ac, av);
-
+  ft_printlst(stack_a, stack_b);
 /*
   if (ac < 10)
     ft_tinysort(a, b);

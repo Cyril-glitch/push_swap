@@ -30,21 +30,23 @@ void ft_checkdup(char **tab, t_clist **new)
 
 void ft_checkdigit(char **tab, t_clist **new)
 {
-  int i;
-  int j;
-  
-  i = 0;
-  while (tab[i])
-  {
-    j = 0;
-    while (tab[i][j])
+    int i;
+    int j;
+
+    i = 0;
+    while (tab[i])
     {
-      if (!ft_isdigit(tab[i][j]))
-        ft_error(tab, new, NULL);
-      j++;
+        j = 0;
+        while (tab[i][j])
+        {
+            if (tab[i][j] == '-' ||  tab[i][j] == '+')
+                j++;
+            if (!ft_isdigit(tab[i][j]))
+                ft_error(tab, new, NULL);
+            j++;
+        }
+        i++;
     }
-    i++;
-  }
 }
 
 void  ft_check_overint(char **tab, t_clist **new, long nbr)
