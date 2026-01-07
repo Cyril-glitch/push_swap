@@ -26,6 +26,7 @@ typedef struct  s_clist
 void ft_checkdigit(char **tab, t_clist **new);
 void ft_checkdup(char **tab, t_clist **new);
 void ft_check_overint(char **tab, t_clist **new, long nbr);
+int  ft_check_sorted(t_clist **stack_a);
 
 //list utils
 void  ft_printlst(t_clist *stack_a, t_clist *stack_b);
@@ -47,8 +48,8 @@ void  ft_rotate(const char *mode,t_clist **stack_a, t_clist **stack_b);
 void  ft_reverse(const char *mode,t_clist **stack_a, t_clist **stack_b);
 
 //fonctions principal de tris
-void  ft_tinysort(t_clist stack);
-void  ft_bigsort(t_clist stack);
+void  ft_little_sort(t_clist **stack);
+void  ft_bigsort(t_clist **stack);
 
 //exit and clean
 void  ft_error(char **tab, t_clist **stack_a, t_clist **stack_b);

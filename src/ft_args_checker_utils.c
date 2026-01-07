@@ -54,3 +54,19 @@ void  ft_check_overint(char **tab, t_clist **new, long nbr)
   if (nbr < INT_MIN || nbr > INT_MAX)
       ft_error(tab, new, NULL);
 }
+
+int    ft_check_sorted(t_clist **stack_a)
+{
+    t_clist *current;
+    t_clist *compared;
+
+    current = *stack_a;
+    while (current->next != *stack_a)
+    {
+        compared = current->next;
+        if (current->content > compared->content)
+            return (0);
+        current = compared;
+    }
+    return (1);
+}

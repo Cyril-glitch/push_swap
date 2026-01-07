@@ -2,28 +2,28 @@
 
 static  void  ft_swapping(t_clist **head)
 {
-  t_clist *second;
-  t_clist *last;
-  t_clist *third;
+    t_clist *second;
+    t_clist *last;
+    t_clist *third;
 
-  if (!*head || ft_stacksize(*head) < 2)
-    return ;
+    second = (*head)->next;
+    last = (*head)->prev;
+    third = second->next;
 
-  second = (*head)->next;
-  last = (*head)->prev;
-  third = second->next;
-  if (third == (*head))
-  {
+    if (!*head || second == *head)
+        return ;
+    if (third == (*head))
+    {
+        (*head) = second;
+        return ;
+    }
+    second->next = (*head);
+    second->prev = last;
+    (*head)->next = third;
+    (*head)->prev = second;
+    last->next = second;
+    third->prev = (*head);
     (*head) = second;
-    return ;
-  }
-  second->next = (*head);
-  second->prev = last;
-  (*head)->next = third;
-  (*head)->prev = second;
-  last->next = second;
-  third->prev = (*head);
-  (*head) = second;
 }
 
 void  ft_swap(const char *mode,t_clist **stack_a ,t_clist **stack_b)
