@@ -6,6 +6,8 @@ static  t_clist *ft_cutnode(t_clist **head)
   t_clist *second;
   t_clist *cutted;
 
+  if (!*head)
+      return (NULL);
   if ((*head) == (*head)->next)
   {
     cutted = *head;
@@ -25,7 +27,7 @@ static  t_clist *ft_cutnode(t_clist **head)
 
 static  void ft_pusher(t_clist **dst, t_clist **src)
 {
-  if (ft_stacksize(*src) < 1)
+  if (!*src)
     return ;
   ft_clstadd_front(dst, ft_cutnode(src));
 }

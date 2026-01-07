@@ -42,34 +42,56 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
 
 t_clist	*ft_clstnew(long content)
 {
-	t_clist	*node;
+	t_clist	*new;
 
-	node = malloc(sizeof(t_clist));
-	if (!node)
+	new = malloc(sizeof(t_clist));
+	if (!new)
 		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	node->prev = NULL;
-	return (node);
+	new->content = content;
+	new->next = new;
+	new->prev = new;
+	return (new);
 }
 
-void	ft_clstadd_back(t_clist **lst, t_clist *new)
+void	ft_clstadd_front(t_clist **head, t_clist *new)
 {
-	if (!lst || !new)
-    ft_error(NULL,lst,NULL);
-	if (*lst)
-  {
-    new->next = *lst;
-    new->prev = (*lst)->prev;
-    (*lst)->prev->next = new;
-    (*lst)->prev = new;
-  }
-	else
-  {
-		*lst = new;
-    new->next = new;
-    new->prev = new;
-  }
+    t_clist *last;
+    if (!new)
+        exit(EXIT_FAILURE);
+    if (*head)
+    {
+        last = (*head)->prev;
+        new->next = (*head);
+        new->prev = last;
+        last->next = new;
+        (*head)->prev = new;
+        *head = new;
+    }
+    else
+    {
+        *head = new;
+        new->next = new;
+        new->prev = new;
+    }
+}
+
+void	ft_clstadd_back(t_clist **head, t_clist *new)
+{
+    if (!head || !new)
+        ft_error(NULL,head,NULL);
+    if (*head)
+    {
+        new->next = *head;
+        new->prev = (*head)->prev;
+        (*head)->prev->next = new;
+        (*head)->prev = new;
+    }
+    else
+    {
+        *head = new;
+        new->next = new;
+        new->prev = new;
+    }
 }
 
 
@@ -94,20 +116,20 @@ int ft_stacksize(t_clist *stack)
   return (i);
 }
 
-void	ft_clstclear(t_clist **lst)
+void	ft_clstclear(t_clist **head)
 {
   int i;
   int size;
   t_clist *current;
 
-  if (!lst)
+  if (!head)
     return ;
   i = 0;
-  size = ft_stacksize(*lst);
+  size = ft_stacksize(*head);
   while (i < size)
   {
-    current = *lst;
-    *lst = (*lst)->next;
+    current = *head;
+    *head = (*head)->next;
     free(current);
     i++;
   }

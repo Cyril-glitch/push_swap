@@ -29,7 +29,7 @@ void ft_check_overint(char **tab, t_clist **new, long nbr);
 
 //list utils
 void  ft_printlst(t_clist *stack_a, t_clist *stack_b);
-void	ft_clstadd_back(t_clist **lst, t_clist *new);
+void	ft_clstadd_back(t_clist **head, t_clist *new);
 void	ft_clstadd_front(t_clist **head, t_clist *new);
 t_clist	*ft_clstnew(long content);
 void	ft_clstclear(t_clist **lst);

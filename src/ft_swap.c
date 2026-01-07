@@ -22,6 +22,7 @@ static  void  ft_swapping(t_clist **head)
   (*head)->next = third;
   (*head)->prev = second;
   last->next = second;
+  third->prev = (*head);
   (*head) = second;
 }
 
