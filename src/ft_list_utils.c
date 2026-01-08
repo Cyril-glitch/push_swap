@@ -95,23 +95,19 @@ void	ft_clstadd_back(t_clist **head, t_clist *new)
 }
 
 
-int ft_stacksize(t_clist *stack)
+int ft_stacksize(t_clist *head)
 {
-  int lap;
   int i;
   t_clist *current;
 
-  if (!stack)
+  if (!head)
     return (0);
-  lap = 0;
-  i = 0;
-  current = stack; 
-  while (!lap)
+  i = 1;
+  current = head; 
+  while (current->next != head)
   {
     current = current->next;
     i++;
-    if (current == stack)
-      lap++;
   }
   return (i);
 }

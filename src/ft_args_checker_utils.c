@@ -70,3 +70,16 @@ int    ft_check_sorted(t_clist **stack_a)
     }
     return (1);
 }
+
+void  ft_error(char **tab, t_clist **stack_a, t_clist **stack_b)
+{
+  if (tab)
+    ft_freedtab(tab);
+  if (stack_a)
+    ft_clstclear(stack_a);
+  if (stack_b)
+    ft_clstclear(stack_b);
+
+  ft_putstr_fd("Error\n", 2);
+  exit(EXIT_FAILURE);
+}

@@ -31,17 +31,17 @@ void  ft_swap(const char *mode,t_clist **stack_a ,t_clist **stack_b)
   if (ft_strcmp(mode, "sa") == 0)
   {
     ft_swapping(stack_a);
-    write(1, "   sa\n\n", 7);
+    write(1, "sa\n", 3);
   }
   else if (ft_strcmp(mode, "sb") == 0)
   {
     ft_swapping(stack_b);
-    write(1, "   sb\n\n", 7);
+    write(1, "sb\n", 3);
   }
   else if (ft_strcmp(mode, "ss") == 0)
   {
     ft_swapping(stack_a);
     ft_swapping(stack_b);
-    write(1, "   ss\n\n", 7);
+    write(1, "ss\n", 3);
   } 
 }
