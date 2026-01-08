@@ -14,6 +14,7 @@ SRC = src/ft_list_utils.c \
 			src/ft_swap.c \
 			src/ft_args_checker_utils.c \
 			src/ft_little_sort.c \
+			src/ft_big_sort.c \
 			src/ft_findminmax.c \
 			src/main.c
  

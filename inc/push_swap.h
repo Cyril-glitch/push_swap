@@ -18,8 +18,12 @@
 typedef struct  s_clist
 {
   long     content;
+  int     index;
   struct  s_clist *prev;
   struct  s_clist *next; 
+  struct  s_clist *target;
+  int     cost_a;
+  int     cost_b;
 } t_clist;
 
 //args_checker_utils
