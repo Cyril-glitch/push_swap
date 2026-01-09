@@ -22,9 +22,19 @@ typedef struct  s_clist
   struct  s_clist *prev;
   struct  s_clist *next; 
   struct  s_clist *target;
-  int     cost_a;
-  int     cost_b;
+  int     cost;
 } t_clist;
+
+typedef struct  s_cost
+{
+  int ra;
+  int rb;
+  int rra;
+  int rrb;
+  int rr;
+  int rrr;
+} t_cost;
+
 
 //args_checker_utils
 void ft_checkdigit(char **tab, t_clist **new);
@@ -54,10 +64,13 @@ void  ft_reverse(const char *mode,t_clist **stack_a, t_clist **stack_b);
 
 //fonctions principal de tris
 void  ft_little_sort(t_clist **stack_a, t_clist **stack_b);
-void  ft_bigsort(t_clist **stack);
+void  ft_big_sort(t_clist **stack_a, t_clist **stack_b);
 
 //detection de min et max
 t_clist *ft_stack_min(t_clist *stack);
 t_clist *ft_stack_max(t_clist *stack);
+
+//target choice
+void  ft_target(t_clist **stack_a, t_clist **stack_b);
 
 #endif
