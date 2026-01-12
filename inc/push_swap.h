@@ -26,7 +26,8 @@ typedef struct  s_clist
   int     strat;
 } t_clist;
 
-typedef struct  s_cost
+
+typedef struct  s_moves
 {
   int ra;
   int rb;
@@ -34,8 +35,7 @@ typedef struct  s_cost
   int rrb;
   int rr;
   int rrr;
-} t_cost;
-
+} t_moves;
 
 //args_checker_utils
 void ft_checkdigit(char **tab, t_clist **new);
@@ -75,12 +75,15 @@ t_clist *ft_stack_max(t_clist *stack);
 void  ft_target(t_clist **stack_a, t_clist **stack_b);
 
 //cost
-t_cost *ft_init_cost(void);
+void  ft_cost(t_clist **stack_a, int size, int size_b);
+
 
 //strat
-int ft_strat_0(t_clist *node, t_cost *cost);
-int ft_strat_1(t_clist *node, t_cost *cost, int size);
-int ft_strat_2(t_clist *node, t_cost *cost, int size);
-int ft_strat_3(t_clist *node, t_cost *cost, int size);
+int ft_strat_0(t_clist *node);
+int ft_strat_1(t_clist *node, int size, int size_b);
+int ft_strat_2(t_clist *node, int size_b);
+int ft_strat_3(t_clist *node, int size);
+
+//strat moves
 
 #endif

@@ -23,22 +23,22 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
   {
     if (i < size_a)
     {
-      ft_printf("[%d][i = %d][targ = %d][cost_a = %d][cost_b = %d]",current_a->content, current_a->index, (long)current_a->target->content,current_a->cost);
+      ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_a->index, current_a->content, (long)current_a->target->content,current_a->cost, current_a->strat);
       current_a = current_a->next;
     }
     else
       write(1, "   ",3);
-    write(1, "  ",2);
+    write(1, "     ",5);
     if (i < size_b)
     {
-      ft_printf("[%d][i = %d][targ = %d][cost_a = %d][cost_b = %d]",current_b->content, current_b->index, current_b->target,current_b->cost);
+      ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_b->index, current_b->content, current_b->target,current_b->cost,current_b->strat);
       current_b = current_b->next;
     }
     write(1, "\n", 1);
     i++;
   }
 
-  ft_printf("\n----------------------------------------------  ----------------------------------------------");
+  ft_printf("\n---------------------------------------    ----------------------------------------------");
   ft_putstr("\n\n                   A                                               B \n\n");
 }
 

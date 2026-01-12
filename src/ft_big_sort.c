@@ -35,7 +35,8 @@ void  ft_big_sort(t_clist **stack_a, t_clist **stack_b)
   ft_index(stack_a);
   ft_index(stack_b);
   ft_target(stack_a, stack_b);
-  ft_cost(stack_a, )
+  ft_cost(stack_a, ((*stack_a)->prev->index + 1), ((*stack_b)->prev->index + 1));
+  ft_cheap_push(stack_a, stack_b);
 
   /*
   while ((*stack_a)->next->next->next != *stack_a)
@@ -43,8 +44,7 @@ void  ft_big_sort(t_clist **stack_a, t_clist **stack_b)
     ft_index(stack_a);
     ft_index(stack_b);
     ft_target(stack_a, stack_b);
-    //cheapest = ft_cost(stack_a);
-    //ft_cheap_push(cheapest);
+    ft_cheap_push(cheapest);
   }
   ft_little_sort(stack_a);
   while (*stack_b)
