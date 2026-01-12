@@ -23,6 +23,7 @@ typedef struct  s_clist
   struct  s_clist *next; 
   struct  s_clist *target;
   int     cost;
+  int     strat;
 } t_clist;
 
 typedef struct  s_cost
@@ -72,5 +73,14 @@ t_clist *ft_stack_max(t_clist *stack);
 
 //target choice
 void  ft_target(t_clist **stack_a, t_clist **stack_b);
+
+//cost
+t_cost *ft_init_cost(void);
+
+//strat
+int ft_strat_0(t_clist *node, t_cost *cost);
+int ft_strat_1(t_clist *node, t_cost *cost, int size);
+int ft_strat_2(t_clist *node, t_cost *cost, int size);
+int ft_strat_3(t_clist *node, t_cost *cost, int size);
 
 #endif

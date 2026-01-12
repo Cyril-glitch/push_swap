@@ -35,7 +35,7 @@ void  ft_big_sort(t_clist **stack_a, t_clist **stack_b)
   ft_index(stack_a);
   ft_index(stack_b);
   ft_target(stack_a, stack_b);
-  ft_cost(stack_a, stack_b)
+  ft_cost(stack_a, )
 
   /*
   while ((*stack_a)->next->next->next != *stack_a)

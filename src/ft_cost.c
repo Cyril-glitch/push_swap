@@ -1,6 +1,6 @@
 #include  "../inc/push_swap.h"
 
-static  t_cost *ft_init_cost(void)
+t_cost *ft_init_cost(void)
 {
   t_cost *new = malloc(sizeof(t_cost));
   if (!new)
@@ -13,40 +13,29 @@ static  t_cost *ft_init_cost(void)
   new->rrr = 0;
 }
 
-static  int *ft_strat_1(t_clist *node, t_cost *cost)
+static  void  ft_onecost(t_clist *node, t_cost *cost, int size)
 {
-  int totalcost;
+  int i;
+  int tab[4];
+  int mincost;
 
-  cost->ra = node->index;
-  cost->rb = node->target->index;
-  if (cost->ra > cost->rb)
-    cost->rr = cost->ra - cost->rb; 
-  else if (cost->ra == cost->rb)
-    cost->rr = cost->ra; 
-  else 
-    cost->rr = cost->rb - cost->ra;
-  totalcost = ((ra - rr) + (rb - rr)) + rr; 
-}
-static  void ft_strat_2(t_clist **stack_a)
-{
-
-}
-static  void ft_strat_3(t_clist **stack_a)
-{
-
-}
-
-static  void ft_strat_4(t_clist **stack_a)
-{
-
+  tab[0] = ft_strat_0(node, t_cost, size);
+  tab[1] = ft_strat_1(node, t_cost, size);
+  tab[2] = ft_strat_2(node, t_cost, size);
+  tab[3] = ft_strat_3(node, t_cost, size);
+  i = 0;
+  mincost = tab[0];
+  while (i < 3)
+  {
+    if (tab[i] > tab[i + 1])
+    mincost = tab[i + 1] 
+    i++;
+  }
+  node->cost = mincost;
+  node->strat = i;
 }
 
-static  void  ft_onecost(t_clist **stack_a)
-{
-
-}
-
-void  ft_cost(t_clist **stack_a, t_clist **stack_b)
+void  ft_cost(t_clist **stack_a, t_cost *cost, int size)
 {
   t_clist *tmp;
   t_clist *lap;

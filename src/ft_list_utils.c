@@ -54,8 +54,8 @@ t_clist	*ft_clstnew(long content)
 	new->prev = new;
   new->index = -1;
   new->target = NULL;
-  new->cost_a = -1;
-  new->cost_b = -1;
+  new->cost = -1;
+  new->strat = -1;
 	return (new);
 }
 
