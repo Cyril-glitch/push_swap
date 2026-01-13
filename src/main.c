@@ -15,7 +15,7 @@ int main(int  ac, char **av)
   //ft_printlst(stack_a, stack_b);
   if (ft_check_sorted(&stack_a))
     ft_printf("already sorted\n");
-  if (ac <= 6)
+  if (ft_stacksize(stack_a) < 6)
   {
     ft_little_sort(&stack_a, &stack_b);
     write(1, "\n\n", 3);
@@ -23,7 +23,7 @@ int main(int  ac, char **av)
   }
   else
     ft_big_sort(&stack_a, &stack_b);
-  ft_printlst(stack_a, stack_b);
+  //ft_printlst(stack_a, stack_b);
   ft_clstclear(&stack_a);
   ft_clstclear(&stack_b);
 }

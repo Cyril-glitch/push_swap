@@ -72,7 +72,8 @@ t_clist *ft_stack_min(t_clist *stack);
 t_clist *ft_stack_max(t_clist *stack);
 
 //target choice
-void  ft_target(t_clist **stack_a, t_clist **stack_b);
+void  ft_target_b(t_clist **stack_a, t_clist **stack_b);
+void  ft_target_a(t_clist **stack_a, t_clist **stack_b);
 
 //cost
 void  ft_cost(t_clist **stack_a, int size, int size_b);
@@ -88,5 +89,12 @@ t_moves *ft_loadmoves(t_clist *cheapest, int size, int size_b);
 
 //push the cheapest node
 void ft_cheap_push(t_clist **stack_a, t_clist **stack_b, int size, int size_b);
+
+
+//push b in a for the last phase
+void ft_upapushb(t_clist **stack_a, t_clist **stack_b, int size);
+
+//last moves
+void  ft_upmin(t_clist **stack_a, t_clist **stack_b);
 
 #endif

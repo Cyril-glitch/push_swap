@@ -4,6 +4,8 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
 {
   t_clist *current_a;
   t_clist *current_b;
+  int target_a;
+  int target_b;
   size_t  size_a;
   size_t  size_b;
   size_t  size;
@@ -11,6 +13,8 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
   int res;
 
 
+  target_a = 0;
+  target_b = 0;
   current_a = stack_a;
   current_b = stack_b;
   size_a = ft_stacksize(stack_a);
@@ -24,7 +28,9 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
   {
     if (i < size_a)
     {
-      res = ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_a->index, current_a->content, (long)current_a->target->content,current_a->cost, current_a->strat);
+      if (current_a->target)
+        target_a = current_a->target->content;
+      res = ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_a->index, current_a->content, target_a,current_a->cost, current_a->strat);
       current_a = current_a->next;
     }
     else
@@ -32,13 +38,14 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
     write(1, "     ",5);
     if (i < size_b)
     {
-      ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_b->index, current_b->content, current_b->target,current_b->cost,current_b->strat);
+      if (current_b->target)
+        target_b = current_b->target->content;
+      ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_b->index, current_b->content, target_b,current_b->cost,current_b->strat);
       current_b = current_b->next;
     }
     write(1, "\n", 1);
     i++;
   }
-
   ft_printf("\n---------------------------------------    ----------------------------------------------");
   ft_putstr("\n\n                   A                                               B \n\n");
 }

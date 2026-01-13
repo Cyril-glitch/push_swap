@@ -16,11 +16,14 @@ SRC = src/ft_list_utils.c \
 			src/ft_little_sort.c \
 			src/ft_big_sort.c \
 			src/ft_findminmax.c \
-			src/ft_target.c \
+			src/ft_target_a.c \
+			src/ft_target_b.c \
 			src/ft_cost.c \
 			src/ft_strat.c \
 			src/ft_cheap_push.c \
 			src/ft_loadmoves.c \
+			src/ft_upapushb.c \
+			src/ft_upmin.c \
 			src/main.c
  
 

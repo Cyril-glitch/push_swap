@@ -36,7 +36,7 @@ static void  ft_onetarget(t_clist **node, t_clist **stack_b)
   }
 }
 
-void  ft_target(t_clist **stack_a, t_clist **stack_b)
+void  ft_target_b(t_clist **stack_a, t_clist **stack_b)
 {
   t_clist *tmp;
   t_clist *lap;
