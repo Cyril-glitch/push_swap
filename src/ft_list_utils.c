@@ -8,6 +8,7 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
   size_t  size_b;
   size_t  size;
   size_t  i;
+  int res;
 
 
   current_a = stack_a;
@@ -23,11 +24,11 @@ void  ft_printlst(t_clist *stack_a, t_clist *stack_b)
   {
     if (i < size_a)
     {
-      ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_a->index, current_a->content, (long)current_a->target->content,current_a->cost, current_a->strat);
+      res = ft_printf("[%d] = %d [targ = %d][cost = %d][strat = %d]",current_a->index, current_a->content, (long)current_a->target->content,current_a->cost, current_a->strat);
       current_a = current_a->next;
     }
     else
-      write(1, "   ",3);
+      write(1, "                                                                               ",res);
     write(1, "     ",5);
     if (i < size_b)
     {

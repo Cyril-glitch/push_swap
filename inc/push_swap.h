@@ -77,7 +77,6 @@ void  ft_target(t_clist **stack_a, t_clist **stack_b);
 //cost
 void  ft_cost(t_clist **stack_a, int size, int size_b);
 
-
 //strat
 int ft_strat_0(t_clist *node);
 int ft_strat_1(t_clist *node, int size, int size_b);
@@ -85,5 +84,9 @@ int ft_strat_2(t_clist *node, int size_b);
 int ft_strat_3(t_clist *node, int size);
 
 //strat moves
+t_moves *ft_loadmoves(t_clist *cheapest, int size, int size_b);
+
+//push the cheapest node
+void ft_cheap_push(t_clist **stack_a, t_clist **stack_b, int size, int size_b);
 
 #endif

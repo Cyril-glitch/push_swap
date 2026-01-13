@@ -19,6 +19,8 @@ SRC = src/ft_list_utils.c \
 			src/ft_target.c \
 			src/ft_cost.c \
 			src/ft_strat.c \
+			src/ft_cheap_push.c \
+			src/ft_loadmoves.c \
 			src/main.c
  
 
