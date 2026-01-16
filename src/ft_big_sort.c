@@ -24,7 +24,7 @@ static void  ft_init(t_clist **stack_a, t_clist **stack_b)
 {
   ft_push("pb",stack_a, stack_b);
   ft_push("pb",stack_a, stack_b);
-  if (*stack_b < (*stack_b)->next)
+  if (*stack_b > (*stack_b)->next)
     ft_swap("sb", stack_a, stack_b);
 
   ft_index(stack_a);
@@ -40,8 +40,9 @@ static void ft_phase_pb(t_clist **stack_a, t_clist **stack_b)
   size_b = 0;
   while ((*stack_a)->prev->index != 2)
   {
-    size = (*stack_a)->prev->index + 1;
-    size_b = (*stack_b)->prev->index + 1;
+
+    size = ft_stacksize(*stack_a);
+    size_b = ft_stacksize(*stack_b);
     ft_target_b(stack_a, stack_b);
 
     //ft_printf("TARGET_B\n\n");
@@ -61,11 +62,13 @@ static void ft_phase_pa(t_clist **stack_a, t_clist **stack_b)
   size = 0;
   while (*stack_b)
   {
-    size = (*stack_a)->prev->index + 1;
+    size = ft_stacksize(*stack_a);
     ft_target_a(stack_a, stack_b);
 
-    //ft_printf("TARGET_A\n\n");
-    //ft_printlst(*stack_a, *stack_b);
+    /*
+    ft_printf("TARGET_A\n\n");
+    ft_printlst(*stack_a, *stack_b);
+    */
 
     ft_upapushb(stack_a, stack_b, size);
     ft_index(stack_a);
@@ -77,7 +80,6 @@ static void ft_phase_pa(t_clist **stack_a, t_clist **stack_b)
 void  ft_big_sort(t_clist **stack_a, t_clist **stack_b)
 {
   ft_init(stack_a, stack_b);
-
   //ft_printf("INIT\n\n");
   //ft_printlst(*stack_a, *stack_b);
 

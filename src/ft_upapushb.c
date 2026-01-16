@@ -25,4 +25,3 @@ void ft_upapushb(t_clist **stack_a, t_clist **stack_b, int size)
   }
   ft_push("pa",stack_a, stack_b);
 }
-

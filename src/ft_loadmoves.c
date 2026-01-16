@@ -18,7 +18,6 @@ static void ft_load_moves_0(t_clist *cheapest, t_moves *mv)
 {
   mv->ra = cheapest->index;
   mv->rb = cheapest->target->index;
-  mv->rr = 0;
 
   if (mv->ra > mv->rb)
     mv->rr = mv->rb; 
@@ -28,14 +27,18 @@ static void ft_load_moves_0(t_clist *cheapest, t_moves *mv)
     mv->rr = mv->ra; 
   mv->ra -= mv->rr;
   mv->rb -= mv->rr;
+  if (mv->ra < 0)
+    mv->ra = 0;
+  if (mv->rb < 0)
+    mv->rb = 0;
 }
 
 static void ft_load_moves_1(t_clist *cheapest,t_moves *mv, int size, int size_b)
 {
-  mv->rra = size - cheapest->index;
-  mv->rrb = size_b - cheapest->target->index;
-  mv->rrr = 0;
-
+  if(cheapest->index > 0)
+    mv->rra = size - cheapest->index;
+  if (cheapest->target->index > 0)  
+    mv->rrb = size_b - cheapest->target->index;
   if (mv->rra > mv->rrb)
     mv->rrr = mv->rrb; 
   else if (mv->rra < mv->rrb)
@@ -44,6 +47,10 @@ static void ft_load_moves_1(t_clist *cheapest,t_moves *mv, int size, int size_b)
     mv->rrr = mv->rra; 
   mv->rra -= mv->rrr;
   mv->rrb -= mv->rrr;
+  if (mv->rra < 0)
+    mv->rra = 0;
+  if (mv->rrb < 0)
+    mv->rrb = 0;
 }
 
 static void ft_load_moves_2and3(t_clist *cheapest, t_moves *mv, int size,int size_b)
@@ -51,11 +58,13 @@ static void ft_load_moves_2and3(t_clist *cheapest, t_moves *mv, int size,int siz
   if (cheapest->strat == 2)
   {
     mv->ra = cheapest->index;
-    mv->rrb = size_b - cheapest->target->index;
+    if (cheapest->target->index > 0)  
+      mv->rrb = size_b - cheapest->target->index;
   }
   else if(cheapest->strat == 3)
   {
-    mv->rra = size - cheapest->index;
+    if(cheapest->index > 0)
+      mv->rra = size - cheapest->index;
     mv->rb = cheapest->target->index;
   }
 }
