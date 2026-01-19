@@ -1,27 +1,22 @@
 #include  "../inc/push_swap.h"
 
-void ft_upapushb(t_clist **stack_a, t_clist **stack_b, int size)
+void ft_upapushb(t_clist **stack_a, t_clist **stack_b)
 {
-  int ra;
-  int rra;
+  t_clist *target_a;
+  int size;
 
-  ra = (*stack_b)->target->index;
-  rra = size - (*stack_b)->target->index;
-  if (ra > rra)
+  target_a = (*stack_b)->target;
+  size = (*stack_a)->prev->index + 1;
+  if (target_a->index <= (size / 2))
   {
-    while(rra)
-    {
-      ft_reverse("rra", stack_a, stack_b);
-      rra--;
-    }
-  }
-  else 
-  {
-    while(ra)
-    {
+    while(*stack_a != target_a)
       ft_rotate("ra", stack_a, stack_b);
-      ra--;
-    }
+  }
+  else
+  {
+    while(*stack_a != target_a)
+      ft_reverse("rra", stack_a, stack_b);
   }
   ft_push("pa",stack_a, stack_b);
 }
+

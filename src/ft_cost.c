@@ -25,6 +25,7 @@ static  void  ft_onecost(t_clist *node, int size, int size_b)
   }
   node->cost = mincost;
   node->strat = j;
+  //ft_max3(node);
 }
 
 void  ft_cost(t_clist **stack_a, int size , int size_b)

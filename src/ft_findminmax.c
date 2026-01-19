@@ -35,7 +35,3 @@ t_clist *ft_stack_max(t_clist *stack)
   }
   return (max);
 }
-
-
-
-

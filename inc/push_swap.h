@@ -17,7 +17,7 @@
 
 typedef struct  s_clist
 {
-  long     content;
+  long    content;
   int     index;
   struct  s_clist *prev;
   struct  s_clist *next; 
@@ -70,6 +70,8 @@ void  ft_big_sort(t_clist **stack_a, t_clist **stack_b);
 //detection de min et max
 t_clist *ft_stack_min(t_clist *stack);
 t_clist *ft_stack_max(t_clist *stack);
+t_clist *ft_bigtwo(t_clist *stack);
+t_clist *ft_bigthree(t_clist *stack);
 
 //target choice
 void  ft_target_b(t_clist **stack_a, t_clist **stack_b);
@@ -92,7 +94,7 @@ void ft_cheap_push(t_clist **stack_a, t_clist **stack_b, int size, int size_b);
 
 
 //push b in a for the last phase
-void ft_upapushb(t_clist **stack_a, t_clist **stack_b, int size);
+void ft_upapushb(t_clist **stack_a, t_clist **stack_b);
 
 //last moves
 void  ft_upmin(t_clist **stack_a, t_clist **stack_b);
