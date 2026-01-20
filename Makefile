@@ -1,7 +1,7 @@
 NAME = bin/push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 LIBDIR = ./ft_printf/
 LIB = ./ft_printf/lib/libftprintf.a
@@ -24,8 +24,9 @@ SRC = src/ft_list_utils.c \
 			src/ft_loadmoves.c \
 			src/ft_upapushb.c \
 			src/ft_upmin.c \
+			src/ft_leavefree.c \
 			src/main.c
- 
+
 
 OBJ = $(SRC:.c=.o)
 

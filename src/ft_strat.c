@@ -1,59 +1,69 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strat.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/20 14:24:48 by cycolonn          #+#    #+#             */
+/*   Updated: 2026/01/20 14:24:57 by cycolonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include  "../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-int ft_strat_0(t_clist *node)
+int	ft_strat_0(t_clist *node)
 {
-  int ra;
-  int rb;
+	int	ra;
+	int	rb;
 
-  ra = node->index;
-  rb = node->target->index;
-
-  if (ra > rb)
-    return (ra);
-  return  (rb);
+	ra = node->index;
+	rb = node->target->index;
+	if (ra > rb)
+		return (ra);
+	return (rb);
 }
 
-int ft_strat_1(t_clist *node, int size, int size_b)
+int	ft_strat_1(t_clist *node, int size, int size_b)
 {
-  int rra;
-  int rrb;
+	int	rra;
+	int	rrb;
 
-  if (node->index == 0)
-    rra = 0;
-  else
-    rra = size - node->index;
-  if (node->target->index == 0)
-    rrb = 0;
-  else
-    rrb = size_b - node->target->index;
-  if (rra > rrb)
-    return (rra);
-  return (rrb);
+	if (node->index == 0)
+		rra = 0;
+	else
+		rra = size - node->index;
+	if (node->target->index == 0)
+		rrb = 0;
+	else
+		rrb = size_b - node->target->index;
+	if (rra > rrb)
+		return (rra);
+	return (rrb);
 }
 
-int ft_strat_2(t_clist *node, int size_b)
+int	ft_strat_2(t_clist *node, int size_b)
 {
-  int ra;
-  int rrb;
+	int	ra;
+	int	rrb;
 
-  ra = node->index;
-  if (node->target->index == 0)
-    rrb = 0;
-  else
-    rrb = size_b - node->target->index;
-  return (ra + rrb);
+	ra = node->index;
+	if (node->target->index == 0)
+		rrb = 0;
+	else
+		rrb = size_b - node->target->index;
+	return (ra + rrb);
 }
 
-int ft_strat_3(t_clist *node, int size)
+int	ft_strat_3(t_clist *node, int size)
 {
-  int rb;
-  int rra;
+	int	rb;
+	int	rra;
 
-  rb = node->target->index;
-  if (node->index == 0)
-    rra = 0;
-  else
-    rra = size - node->index;
-  return (rb + rra);
+	rb = node->target->index;
+	if (node->index == 0)
+		rra = 0;
+	else
+		rra = size - node->index;
+	return (rb + rra);
 }

@@ -1,101 +1,103 @@
-#include  "../inc/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_little_sort.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/20 14:16:29 by cycolonn          #+#    #+#             */
+/*   Updated: 2026/01/20 14:21:40 by cycolonn         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void static ft_sort_two(t_clist **stack_a, t_clist **stack_b)
+#include "../inc/push_swap.h"
+
+void static	ft_sort_two(t_clist **stack_a, t_clist **stack_b)
 {
-  if((*stack_a)->content > (*stack_a)->next->content)
-    ft_swap("sa",stack_a, stack_b);
+	if ((*stack_a)->content > (*stack_a)->next->content)
+		ft_swap("sa", stack_a, stack_b);
 }
 
-void static ft_sort_three(t_clist **stack_a, t_clist **stack_b)
+void static	ft_sort_three(t_clist **stack_a, t_clist **stack_b)
 {
-  t_clist *first;
-  t_clist *second;
-  t_clist *max;
+	t_clist	*first;
+	t_clist	*second;
+	t_clist	*max;
 
-
-
-  first = *stack_a;
-  second = (*stack_a)->next;
-  max = ft_stack_max(*stack_a);
-
-
-  if (first == max)
-    ft_rotate("ra",stack_a, stack_b);
-  else if (second == max)
-    ft_reverse("rra", stack_a, stack_b);
-  ft_sort_two(stack_a, stack_b);
+	first = *stack_a;
+	second = (*stack_a)->next;
+	max = ft_stack_max(*stack_a);
+	if (first == max)
+		ft_rotate("ra", stack_a, stack_b);
+	else if (second == max)
+		ft_reverse("rra", stack_a, stack_b);
+	ft_sort_two(stack_a, stack_b);
 }
 
-void static ft_sort_four(t_clist **stack_a, t_clist **stack_b)
+void static	ft_sort_four(t_clist **stack_a, t_clist **stack_b)
 {
-  t_clist *second;
-  t_clist *third;
-  t_clist *fourth;
-  t_clist *min;
+	t_clist	*second;
+	t_clist	*third;
+	t_clist	*fourth;
+	t_clist	*min;
 
-  second = (*stack_a)->next;
-  third = second->next;
-  fourth = third->next;
-  min = ft_stack_min(*stack_a);
-
-  if (second == min)
-    ft_rotate("ra",stack_a, stack_b);
-  else if (third == min)
-  {
-    ft_rotate("ra", stack_a, stack_b);
-    ft_rotate("ra", stack_a, stack_b); 
-  }
-  else if (fourth == min)
-    ft_reverse("rra", stack_a, stack_b);
-  ft_push("pb",stack_a,stack_b);
-  ft_sort_three(stack_a, stack_b);
-  ft_push("pa",stack_a,stack_b);
+	second = (*stack_a)->next;
+	third = second->next;
+	fourth = third->next;
+	min = ft_stack_min(*stack_a);
+	if (second == min)
+		ft_rotate("ra", stack_a, stack_b);
+	else if (third == min)
+	{
+		ft_rotate("ra", stack_a, stack_b);
+		ft_rotate("ra", stack_a, stack_b);
+	}
+	else if (fourth == min)
+		ft_reverse("rra", stack_a, stack_b);
+	ft_push("pb", stack_a, stack_b);
+	ft_sort_three(stack_a, stack_b);
+	ft_push("pa", stack_a, stack_b);
 }
 
-void static ft_sort_five(t_clist **stack_a, t_clist **stack_b)
+void static	ft_sort_five(t_clist **stack_a, t_clist **stack_b)
 {
-  t_clist *second;
-  t_clist *third;
-  t_clist *fourth;
-  t_clist *fifth;
-  t_clist *min;
+	t_clist	*fourth;
+	t_clist	*fifth;
+	t_clist	*min;
 
-  second = (*stack_a)->next;
-  third = second->next;
-  fourth = third->next;
-  fifth = fourth->next;
-
-  min = ft_stack_min(*stack_a);
-  if (second == min)
-    ft_rotate("ra",stack_a, stack_b);
-  else if (third == min)
-  {
-    ft_rotate("ra", stack_a, stack_b);
-    ft_rotate("ra", stack_a, stack_b); 
-  }
-  else if (fourth == min)
-  {
-    ft_reverse("rra", stack_a, stack_b);
-    ft_reverse("rra", stack_a, stack_b);
-  }
-  else if (fifth == min)
-    ft_reverse("rra", stack_a, stack_b);
-  ft_push("pb",stack_a,stack_b);
-  ft_sort_four(stack_a, stack_b);
-  ft_push("pa",stack_a,stack_b);
+	fourth = (*stack_a)->next->next->next;
+	fifth = fourth->next;
+	min = ft_stack_min(*stack_a);
+	if ((*stack_a)->next == min)
+		ft_rotate("ra", stack_a, stack_b);
+	else if ((*stack_a)->next->next == min)
+	{
+		ft_rotate("ra", stack_a, stack_b);
+		ft_rotate("ra", stack_a, stack_b);
+	}
+	else if (fourth == min)
+	{
+		ft_reverse("rra", stack_a, stack_b);
+		ft_reverse("rra", stack_a, stack_b);
+	}
+	else if (fifth == min)
+		ft_reverse("rra", stack_a, stack_b);
+	ft_push("pb", stack_a, stack_b);
+	ft_sort_four(stack_a, stack_b);
+	ft_push("pa", stack_a, stack_b);
 }
 
-void    ft_little_sort(t_clist **stack_a, t_clist **stack_b)
+void	ft_little_sort(t_clist **stack_a, t_clist **stack_b)
 {
-  size_t  size;
+	size_t	size;
 
-  size = ft_stacksize(*stack_a);
-  if (size == 2)
-    ft_sort_two(stack_a, stack_b);
-  else if (size == 3)
-    ft_sort_three(stack_a, stack_b);
-  else if (size == 4)
-    ft_sort_four(stack_a, stack_b);
-  else if (size == 5)
-    ft_sort_five(stack_a, stack_b);
+	size = ft_stacksize(*stack_a);
+	if (size == 2)
+		ft_sort_two(stack_a, stack_b);
+	else if (size == 3)
+		ft_sort_three(stack_a, stack_b);
+	else if (size == 4)
+		ft_sort_four(stack_a, stack_b);
+	else if (size == 5)
+		ft_sort_five(stack_a, stack_b);
 }
