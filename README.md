@@ -3,7 +3,7 @@ of the 42 curriculum by *cycolonn*.
 
 # 📊 __Push_swap__
 
-##Description
+## Description
 
 __Push_swap__ est un exercice propose par l'ecole 42 visant a nous familiariser avec le concept d'architecture bases sur les piles (ou "stack" en anglais) qui sont des structures des 
 donnees fondee sur le principe LIFO ("last in, first out").
@@ -18,17 +18,17 @@ Le But final etant : ◦ trier 100 nombres aleatoires en moins de 700 operations
 ---
 
 
-##__Instructions__
+## __Instructions__
 
 
-###recuperer le projet
+### recuperer le projet
 
 ```
 git clone git@vogsphere.42paris.fr:vogsphere/intra-uuid-7aac1d5f-5b91-4e36-8a29-a31f15222267-7178535-cycolonn
 
 ```
 
-###compiler
+### compiler
 
 creer un executable __push_swap__ dans le sous dossier /bin.
 
@@ -40,7 +40,7 @@ make re     # Recompile tout depuis zéro
 
 ```
 
-###executer
+### executer
 
 Le programe pour argument une suites d'entiers (positifs ou negatifs sans doublons).
 il afficheras les operations effectuer pour les triers.
@@ -53,7 +53,7 @@ il afficheras les operations effectuer pour les triers.
 
 ```
 
-###checker
+### checker
 
 Pour confirmer que la liste a bien etait tries, un checker est fournis dans les ressources du sujet voici la commande effectuer pour l'utiliser
 
@@ -68,7 +68,7 @@ Affiche "KO" si ce n'est pas le cas.
 ---
 
 
-##__Ressources__
+## __Ressources__
 
 Cette sections listes les ressources documentaires que j'ai utilises lors de la conception du projet :
 
