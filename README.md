@@ -13,7 +13,9 @@ Dans ce projet, nous allons devoir réaliser un programme permettant de trier un
 Pour cela, nous allons pouvoir, tout au long du projet, répartir nos données dans deux piles (A et B) et y effectuer des mouvements spécifiques qui respectent les contraintes physiques réelles auxquelles sont soumises ce genre de structures.
 
 > Le but final étant :
+
 > ◦ Trier 100 nombres aléatoires en moins de 700 opérations.
+
 > ◦ Trier 500 nombres aléatoires en moins de 5500 opérations.
 
 
