@@ -72,6 +72,7 @@ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
 ```
 
 > Affiche "OK" si le programe a réussi a trier notre suite d'entiers.
+
 > Affiche "KO" si ce n'est pas le cas.
 
 
