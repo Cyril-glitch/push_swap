@@ -3,7 +3,10 @@ This project has been created as part of the 42 curriculum by *cycolonn*.
 # 📊 __Push_swap__
 
 
+
+
 ## 💬 __Description__
+
 
 
 > __Push_swap__ est un exercice proposé par l'école 42 visant à nous familiariser avec le concept d'architecture basée sur les piles (ou "stack" en anglais) qui sont des structures de données fondées sur le principe LIFO ("last in, first out").
@@ -21,7 +24,11 @@ Pour cela, nous allons pouvoir, tout au long du projet, répartir nos données d
 
 ---
 
+
+
+
 ## 📝 __Instructions__
+
 
 
 ### <ins>Récuperer le projet</ins>
@@ -79,7 +86,10 @@ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
 ---
 
 
+
+
 ## 🛠️ __Ressources__
+
 
 
 > Cette section liste les ressources documentaires que j'ai utilisées lors de la conception du projet :
