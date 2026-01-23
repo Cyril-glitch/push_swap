@@ -1,7 +1,7 @@
 NAME = bin/push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g
 
 LIBDIR = ./ft_printf/
 LIB = ./ft_printf/lib/libftprintf.a

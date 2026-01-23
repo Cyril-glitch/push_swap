@@ -13,7 +13,7 @@ This project has been created as part of the 42 curriculum by *cycolonn*.
 
 > Cela sera aussi pour nous l'occasion de nous confronter au choix et à l'optimisation d'un algorithme complexe de tri selon les contraintes de performances imposées par le sujet.
 Dans ce projet, nous allons devoir réaliser un programme permettant de trier une suite de nombres aléatoires dans un ordre croissant.
-Pour cela, nous allons pouvoir, tout au long du projet, répartir nos données dans deux piles (A et B) et y effectuer des mouvements spécifiques qui respectent les contraintes physiques réelles auxquelles sont soumises ce genre de structures.
+Pour cela, nous allons pouvoir, tout au long du projet, répartir nos données dans deux piles (A et B) et y effectuer des mouvements spécifiques qui respectent les contraintes logiques auxquelles sont soumises ces structures.
 
 > Le but final étant :
 
@@ -105,4 +105,5 @@ ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
 ◦ __Checker et optimisation__ : [complexity](https://github.com/SimonCROS/push_swap_tester).
 
 ◦ __Compréhension Algorithmique__ : Explication détaillée des différentes phases du "Turk Sort" (google Gemini).
+
 

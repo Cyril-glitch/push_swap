@@ -6,7 +6,7 @@
 /*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 12:50:25 by cycolonn          #+#    #+#             */
-/*   Updated: 2026/01/20 14:27:33 by cycolonn         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:30:24 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ void	ft_checkdigit(char **tab, t_clist **new)
 		{
 			if (tab[i][j] == '-' || tab[i][j] == '+')
 				j++;
-			if (!ft_isdigit(tab[i][j]))
+			while (ft_isdigit(tab[i][j]))
+				j++;
+			if (tab[i][j] && !ft_isdigit(tab[i][j]))
 				ft_error(tab, new, NULL);
-			j++;
 		}
 		i++;
 	}

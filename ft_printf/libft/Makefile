@@ -55,8 +55,8 @@ SRC =  src/ft_atoi.c \
        src/ft_strlen.c \
        src/ft_strnstr.c \
        src/ft_tolower.c \
-			 src/ft_dtablen.c \
-			 src/ft_freedtab.c 
+       src/ft_dtablen.c \
+       src/ft_freedtab.c
 
 OBJ = $(SRC:.c=.o)
 

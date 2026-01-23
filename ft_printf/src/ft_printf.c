@@ -6,13 +6,13 @@
 /*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/19 16:26:03 by cycolonn          #+#    #+#             */
-/*   Updated: 2025/12/31 12:22:55 by cycolonn         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:18:24 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
 
-static	int	ft_printconv(char conv, t_flags *f, t_format *fmt, va_list args)
+static int	ft_printconv(char conv, t_flags *f, t_format *fmt, va_list args)
 {
 	int	count;
 
@@ -73,11 +73,11 @@ int	ft_printf(const char *str, ...)
 	t_format	*fmt;
 
 	f = ft_flaginit();
-  if(!f)
-    return (-1);
+	if (!f)
+		return (-1);
 	fmt = ft_fmtinit();
-  if (!fmt)
-    return (-1);
+	if (!fmt)
+		return (-1);
 	count = 0;
 	if (!str)
 		return (-1);
@@ -96,7 +96,7 @@ int	ft_printf(const char *str, ...)
    int res = 0;
 
 //test %c
-char  c = 'a';
+char			c = 'a';
 resft = ft_printf("test 'c' = %c\n",c);
 res = printf("test 'c' = %c\n",c);
 printf("resft = %d\n",resft);
@@ -104,7 +104,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %s
-char  *s = "bonjour";
+char			*s = "bonjour";
 resft = ft_printf("test 's' = %s\n",s);
 res = printf("test 's' = %s\n",s);
 printf("resft = %d\n",resft);
@@ -112,7 +112,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %p
-char *p = "test" ;
+char			*p = "test" ;
 resft = ft_printf("test 'p' sur l'adresse = %p\n",p);
 res = printf("test 'p' sur l'adresse = %p\n",p);
 printf("resft = %d\n",resft);
@@ -120,7 +120,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %d
-int d = -2147483648;
+int				d = -2147483648;
 resft = ft_printf("test 'd' = %d\n",d);
 res = printf("test 'd' = %i\n",d);
 printf("resft = %d\n",resft);
@@ -128,7 +128,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %i
-int i = -2147483648;
+int				i = -2147483648;
 resft = ft_printf("test 'i' = %i\n",i);
 res = printf("test 'i' = %i\n",i);
 printf("resft = %d\n",resft);
@@ -137,7 +137,7 @@ write(1, "\n\n", 2);
 
 
 //test %u
-unsigned int u = 4000000000;
+unsigned int	u = 4000000000;
 resft = ft_printf("test 'u' = %u\n",u);
 res = printf("test 'u' = %u\n",u);
 printf("resft = %d\n",resft);
@@ -145,7 +145,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %x
-int x = -657435;
+int				x = -657435;
 resft = ft_printf("test 'x' = %x\n",x);
 res = printf("test 'x' = %x\n",x);
 printf("resft = %d\n",resft);
@@ -153,7 +153,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %X
-int X = -657435;
+int				X = -657435;
 resft = ft_printf("test 'X' = %X\n",X);
 res = printf("test 'X' = %X\n",X);
 printf("resft = %d\n",resft);
@@ -178,7 +178,7 @@ write(1, "\n\n", 2);
    write(1, "\n\n", 2);
 
 //test %s
-char  *s = 0;
+char			*s = 0;
 resft = ft_printf("test 's' = %s\n",s);
 res = printf("test 's' = %s\n",s);
 printf("resft = %d\n",resft);
@@ -186,7 +186,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %p
-char *p = 0;
+char			*p = 0;
 resft = ft_printf("test 'p' sur l'adresse = %p\n",p);
 res = printf("test 'p' sur l'adresse = %p\n",p);
 printf("resft = %d\n",resft);
@@ -194,7 +194,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %d
-int d = 0;
+int				d = 0;
 resft = ft_printf("test 'd' = %d\n",d);
 res = printf("test 'd' = %i\n",d);
 printf("resft = %d\n",resft);
@@ -202,7 +202,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %i
-int i = 0;
+int				i = 0;
 resft = ft_printf("test 'i' = %i\n",i);
 res = printf("test 'i' = %i\n",i);
 printf("resft = %d\n",resft);
@@ -211,7 +211,7 @@ write(1, "\n\n", 2);
 
 
 //test %u
-unsigned int u = 0;
+unsigned int	u = 0;
 resft = ft_printf("test 'u' = %u\n",u);
 res = printf("test 'u' = %u\n",u);
 printf("resft = %d\n",resft);
@@ -219,7 +219,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %x
-int x = 0;
+int				x = 0;
 resft = ft_printf("test 'x' = %x\n",x);
 res = printf("test 'x' = %x\n",x);
 printf("resft = %d\n",resft);
@@ -227,7 +227,7 @@ printf("res = %d\n",res);
 write(1, "\n\n", 2);
 
 //test %X
-int X = 0;
+int				X = 0;
 resft = ft_printf("test 'X' = %X\n",X);
 res = printf("test 'X' = %X\n",X);
 printf("resft = %d\n",resft);
@@ -243,7 +243,7 @@ write(1, "\n\n", 2);
 
 //test %c
 //flag autorise - et width
-int  c = 'a';
+int				c = 'a';
 resft = ft_printf("test %%c = |%-20c|\n",c);
 res = printf("test %%c = |%-20c|\n",c);
 printf("resft = %d\n",resft);
@@ -259,7 +259,7 @@ printf("\n\n");
 
 //test %s
 //flags autorise - et .
-char *s = "hello";
+char			*s = "hello";
 resft = ft_printf("test %%s = |%-.3s|\n",s);
 res = printf("test %%s = |%-.3s|\n",s);
 printf("resft = %d\n",resft);
@@ -298,7 +298,7 @@ printf("\n\n");
 //test d
 //flag autorise tous sauf #
 //test des flags precision
-int d = 42;
+int				d = 42;
 resft = ft_printf("test %%d = |%-0# +30.5d|\n",d);
 res = printf("test %%d = |%-0# +30.5d|\n",d);
 printf("resft = %d\n",resft);
@@ -324,7 +324,7 @@ printf("\n\n");
 
 //test %p
 //flas autorise - et width
-char *p = "hello";
+char			*p = "hello";
 resft = ft_printf("test %%p = |%-30.2p|\n",p);
 res = printf("test %%p = |%-30.2p|\n",p);
 printf("resft = %d\n",resft);
@@ -349,7 +349,7 @@ printf("\n\n");
 
 //test %u
 //flags autorise -0.
-unsigned int u;
+unsigned int	u;
 u = 4294967295;
 resft = ft_printf("test %%u = |%-40.30u|\n",u);
 res = printf("test %%u = |%-40.30u|\n",u);
@@ -358,7 +358,7 @@ printf("res = %d\n",res);
 printf("\n\n");
 
 //test x
-unsigned int x;
+unsigned int	x;
 x = 429496729;
 resft = ft_printf("test %%x = |%-40.30x|\n",x);
 res = printf("test %%x = |%-40.30x|\n",x);
@@ -375,7 +375,7 @@ printf("res = %d\n",res);
 printf("\n\n");
 
 //test X
-unsigned int X;
+unsigned int	X;
 X = 4294967;
 resft = ft_printf("test %%X = |%-#40.30x|\n",X);
 res = printf("test %%X = |%-#40.30x|\n",X);

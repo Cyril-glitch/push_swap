@@ -6,7 +6,7 @@
 /*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 14:23:08 by cycolonn          #+#    #+#             */
-/*   Updated: 2026/01/20 14:23:19 by cycolonn         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:26:41 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	ft_convertnode(char *av, t_clist **new)
 	tab = ft_split(av, ' ');
 	if (!tab)
 		ft_leavefree(new, NULL);
+	if (!*tab)
+		ft_error(tab, new, NULL);
 	ft_checkdigit(tab, new);
 	while (tab[i])
 	{
@@ -43,6 +45,8 @@ t_clist	*ft_parser(int ac, char **av)
 	new = NULL;
 	while (i < ac)
 	{
+		if (!*av[i])
+			ft_error(NULL, &new, NULL);
 		ft_convertnode(av[i], &new);
 		i++;
 	}

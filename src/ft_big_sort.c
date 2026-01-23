@@ -6,7 +6,7 @@
 /*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/20 13:54:46 by cycolonn          #+#    #+#             */
-/*   Updated: 2026/01/20 13:55:17 by cycolonn         ###   ########.fr       */
+/*   Updated: 2026/01/21 15:09:21 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_init(t_clist **stack_a, t_clist **stack_b)
 {
 	ft_push("pb", stack_a, stack_b);
 	ft_push("pb", stack_a, stack_b);
-	if (*stack_b > (*stack_b)->next)
+	if ((*stack_b)->content < (*stack_b)->next->content)
 		ft_swap("sb", stack_a, stack_b);
 	ft_index(stack_a);
 	ft_index(stack_b);
@@ -51,8 +51,8 @@ static void	ft_phase_pb(t_clist **stack_a, t_clist **stack_b)
 	size_b = 0;
 	while ((*stack_a)->prev->index != 2)
 	{
-		size = ft_stacksize(*stack_a);
-		size_b = ft_stacksize(*stack_b);
+		size = (*stack_a)->prev->index + 1;
+		size_b = (*stack_b)->prev->index + 1;
 		ft_target_b(stack_a, stack_b);
 		ft_cost(stack_a, size, size_b);
 		ft_cheap_push(stack_a, stack_b, size, size_b);
@@ -77,8 +77,8 @@ void	ft_big_sort(t_clist **stack_a, t_clist **stack_b)
 	ft_init(stack_a, stack_b);
 	ft_phase_pb(stack_a, stack_b);
 	ft_little_sort(stack_a, stack_b);
-	ft_phase_pa(stack_a, stack_b);
-	ft_upmin(stack_a, stack_b);
 	ft_index(stack_a);
 	ft_index(stack_b);
+	ft_phase_pa(stack_a, stack_b);
+	ft_upmin(stack_a, stack_b);
 }

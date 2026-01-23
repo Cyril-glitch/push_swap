@@ -6,19 +6,19 @@
 /*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 15:04:45 by cycolonn          #+#    #+#             */
-/*   Updated: 2025/12/31 11:54:21 by cycolonn         ###   ########.fr       */
+/*   Updated: 2026/01/21 12:17:09 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "../inc/libft.h"
+#include "../inc/libft.h"
 
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-  if (!s)
-    return (0);
+	if (!s)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);
