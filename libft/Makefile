@@ -56,7 +56,22 @@ SRC =  src/ft_atoi.c \
        src/ft_strnstr.c \
        src/ft_tolower.c \
        src/ft_dtablen.c \
-       src/ft_freedtab.c
+       src/ft_freedtab.c \
+			 src/ft_flags.utils.c \
+       src/ft_freeall.c \
+       src/ft_printf.c \
+       src/ft_printptr_hex.c \
+       src/ft_printupper_hex.c \
+       src/ft_fmtinit.c \
+       src/ft_padandprint.c \
+       src/ft_printlower_hex.c \
+       src/ft_printstr.c \
+       src/ft_utoabase.c \
+       src/ft_format.utils.c \
+       src/ft_printchar.c \
+       src/ft_printnbr.c \
+       src/ft_zero.c \
+       src/ft_printunsigned.c
 
 OBJ = $(SRC:.c=.o)
 
