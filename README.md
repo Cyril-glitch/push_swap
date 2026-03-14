@@ -46,7 +46,7 @@ For this project, I implemented an approach based on the **Turk Algorithm**, foc
 To ensure the algorithm's efficiency and correctness, I utilized specialized community tools:
 
 * **[Visualizer](https://github.com/o-reo/push_swap_visualizer)**: A graphical tool to observe the Turk logic in real-time. This was crucial for debugging the cost calculation and ensuring that combined rotations were triggered correctly.
-* **[Complexity Tester](https://github.com/louisvane/push_swap_tester)**: Used to run large-scale simulations (100 and 500 values) and ensure the move count stays consistently within the "5-point" bracket.
+* **[Complexity Tester](https://github.com/SimonCROS/push_swap_tester)**: Used to run large-scale simulations (100 and 500 values) and ensure the move count stays consistently within the "5-point" bracket.
 * **Checker**: Validated all outputs using the `checker_linux` utility to verify that the final stack is truly sorted and that no instructions are corrupted.
 
 ---
