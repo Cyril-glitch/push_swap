@@ -1,109 +1,94 @@
-This project has been created as part of the 42 curriculum by *cycolonn*.
+x*This project has been created as part of the 42 curriculum by cycolonn.*
 
-# 📊 __Push_swap__
+# 🔢 Push_swap - Technical Documentation
 
-
-
-
-## 💬 __Description__
-
-
-
-> __Push_swap__ est un exercice proposé par l'école 42 visant à nous familiariser avec le concept d'architecture basée sur les piles (ou "stack" en anglais) qui sont des structures de données fondées sur le principe LIFO ("last in, first out").
-
-> Cela sera aussi pour nous l'occasion de nous confronter au choix et à l'optimisation d'un algorithme complexe de tri selon les contraintes de performances imposées par le sujet.
-Dans ce projet, nous allons devoir réaliser un programme permettant de trier une suite de nombres aléatoires dans un ordre croissant.
-Pour cela, nous allons pouvoir, tout au long du projet, répartir nos données dans deux piles (A et B) et y effectuer des mouvements spécifiques qui respectent les contraintes logiques auxquelles sont soumises ces structures.
-
-> Le but final étant :
-
-> ◦ Trier 100 nombres aléatoires en moins de 700 opérations.
-
-> ◦ Trier 500 nombres aléatoires en moins de 5500 opérations.
-
+## 1. Description
+**Push_swap** is a highly efficient data sorting project that requires sorting a stack of integers using a limited set of instructions and a secondary stack. The main objective is to find the smallest sequence of operations to achieve a perfectly sorted stack, emphasizing algorithmic complexity and optimization.
 
 ---
 
+<br />
 
-
-
-## 📝 __Instructions__
-
-
-
-### <ins>Récuperer le projet</ins>
-
-
-```bash
-git clone git@vogsphere.42paris.fr:vogsphere/intra-uuid-7aac1d5f-5b91-4e36-8a29-a31f15222267-7178535-cycolonn
-
-```
-
-
-### <ins>Compiler</ins>
-
-
-> créer un executable __push_swap__ dans le sous dossier /bin.
-
-```bash
-make        # Compile le projet et génère l'exécutable 'push_swap'
-make clean  # Supprime les fichiers objets (.o)
-make fclean # Supprime les objets et l'exécutable
-make re     # Recompile tout depuis zéro
-
-```
-
-
-### <ins>Executer</ins>
-
-
-> Le programe prend pour argument une suites d'entiers (positifs ou negatifs et sans doublons).
-> Il afficheras les operations effectuées pour les trier.
-
-```bash
-./bin/push_swap 9 8 7 4 5 6 1 2 3
-
-./bin/push_swap "9 8 7 4 5" 6 1 2 3
-
-```
-
-
-### <ins>Checker</ins>
-
-
-> Pour confirmer que la liste a bien etait triée, un checker est fournis dans les ressources du sujet.
-
-```bash
-ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_OS $ARG
-
-```
-
-> Affiche "OK" si le programe a réussi a trier notre suite d'entiers.
-
-> Affiche "KO" si ce n'est pas le cas.
-
+## 2. Technical Instructions & Features
+The program implements a rigorous sorting logic to meet the school's performance benchmarks:
 
 ---
 
+<br />
 
+* **The Instruction Set**: Full support for `sa`, `sb`, `ss` (swap), `pa`, `pb` (push), `ra`, `rb`, `rr` (rotate), and `rra`, `rrb`, `rrr` (reverse rotate).
+* **Input Validation**: Robust parsing that handles non-numeric input, integer overflows (MIN/MAX INT), and duplicate values.
+* **Stack Management**: Implementation of a doubly linked list structure to perform stack operations with $O(1)$ complexity.
+* **Performance Benchmarks**: Optimized to sort 100 numbers in fewer than 700 moves and 500 numbers in fewer than 5500 moves.
 
+---
 
-## 🛠️ __Ressources__
+<br />
 
+## 3. Resources & Technical Choices
+For this project, I implemented an approach based on the **Turk Algorithm**, focusing on dynamic cost calculation to minimize operations.
 
+---
 
-> Cette section liste les ressources documentaires que j'ai utilisées lors de la conception du projet :
+<br />
 
+### 🧠 The Sorting Strategy (Turk Algorithm)
+* **Initial Push**: The algorithm begins by pushing most elements from Stack A to Stack B, leaving only three elements in A to be sorted instantly using a specialized "Sort Three" logic.
+* **Cost Analysis**: For every element in Stack A, the program calculates the "cost" (number of operations) required to move it to its correct position in Stack B.
+* **The "Cheapest" Move**: It identifies the element with the lowest total cost. This involves calculating combined rotations (`rr`, `rrr`) to move both stacks simultaneously, significantly reducing the operation count.
+* **Mechanical Turk Logic**: Once Stack A is empty (except for the 3 sorted elements), everything is pushed back from B to A in one final, ordered pass.
 
-◦ __Documentation du projet__ : Sujet Push swap (42).
+---
 
-◦ __Articles sur le Turk Sort__ : [Push Swap_ Turk algorithm explained in 6 steps (Yutong Deng)](https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0).
- 				  [Push Swap — A journey to find most efficient sorting algorithm (A. Yigit Ogun)](https://medium.com/@ayogun/push-swap-c1f5d2d41e97).
+<br />
 
-◦ __Outils de visualisation__ : [Push swap Visualizer (o-reo)](https://github.com/o-reo/push_swap_visualizer).
+### 📊 Testing, Complexity & Visualization
+To ensure the algorithm's efficiency and correctness, I utilized several specialized tools from the 42 community:
 
-◦ __Checker et optimisation__ : [complexity](https://github.com/SimonCROS/push_swap_tester).
+* **[Push_swap Visualizer](https://github.com/o-reo/push_swap_visualizer)**: A graphical tool to observe the Turk logic in real-time. This was crucial for debugging the cost calculation and ensuring that combined rotations were triggered correctly.
+* **[Push_swap Tester (louisvane)](https://github.com/louisvane/push_swap_tester)**: Used to run large-scale simulations (100 and 500 values) and ensure the move count stays within the "5-point" bracket.
+* **[Push_swap Tester (gemartin)](https://github.com/gn-martin/push_swap_tester)**: Another comprehensive tester to verify edge cases and error handling.
+* **Checker**: Validated all outputs using the `checker_linux` to verify that the final stack is truly sorted and that no instructions are corrupted.
 
-◦ __Compréhension Algorithmique__ : Explication détaillée des différentes phases du "Turk Sort" (google Gemini).
+---
 
+<br />
 
+### 🏗️ Robustness and Cleanup
+* **Error Handling**: Any invalid input results in a clean exit with a single "Error" message on the standard error output.
+* **Memory Management**: Every node and temporary structure is systematically freed. The project is verified to be 100% leak-free.
+
+---
+
+<br />
+
+### 📜 Authorized Functions
+This project is built using: `read`, `write`, `malloc`, `free`, and `exit`.
+
+---
+
+<br />
+
+## 💻 How to Compile and Run
+To compile the project and test the sorting efficiency:
+
+---
+
+<br />
+
+```bash
+# Clone the repository
+git clone [https://github.com/Cyril-glitch/push_swap.git](https://github.com/Cyril-glitch/push_swap.git)
+
+# Navigate and compile
+cd push_swap
+make
+
+# Run the program with a list of integers
+./push_swap 3 2 5 1 4
+
+# Visualizing the number of operations
+ARG="3 0 9 2 -1"; ./push_swap $ARG | wc -l
+
+# Testing with the checker
+ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker_linux $ARG
