@@ -1,4 +1,4 @@
-x*This project has been created as part of the 42 curriculum by cycolonn.*
+*This project has been created as part of the 42 curriculum by cycolonn.*
 
 # 🔢 Push_swap - Technical Documentation
 
@@ -43,12 +43,11 @@ For this project, I implemented an approach based on the **Turk Algorithm**, foc
 <br />
 
 ### 📊 Testing, Complexity & Visualization
-To ensure the algorithm's efficiency and correctness, I utilized several specialized tools from the 42 community:
+To ensure the algorithm's efficiency and correctness, I utilized specialized community tools:
 
-* **[Push_swap Visualizer](https://github.com/o-reo/push_swap_visualizer)**: A graphical tool to observe the Turk logic in real-time. This was crucial for debugging the cost calculation and ensuring that combined rotations were triggered correctly.
-* **[Push_swap Tester (louisvane)](https://github.com/louisvane/push_swap_tester)**: Used to run large-scale simulations (100 and 500 values) and ensure the move count stays within the "5-point" bracket.
-* **[Push_swap Tester (gemartin)](https://github.com/gn-martin/push_swap_tester)**: Another comprehensive tester to verify edge cases and error handling.
-* **Checker**: Validated all outputs using the `checker_linux` to verify that the final stack is truly sorted and that no instructions are corrupted.
+* **[Visualizer](https://github.com/o-reo/push_swap_visualizer)**: A graphical tool to observe the Turk logic in real-time. This was crucial for debugging the cost calculation and ensuring that combined rotations were triggered correctly.
+* **[Complexity Tester](https://github.com/louisvane/push_swap_tester)**: Used to run large-scale simulations (100 and 500 values) and ensure the move count stays consistently within the "5-point" bracket.
+* **Checker**: Validated all outputs using the `checker_linux` utility to verify that the final stack is truly sorted and that no instructions are corrupted.
 
 ---
 
